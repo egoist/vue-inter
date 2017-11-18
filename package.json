@@ -1,0 +1,47 @@
+{
+  "name": "vue-inter",
+  "version": "0.0.0",
+  "description": "Simple i18n for Vue.js",
+  "repository": {
+    "url": "egoist/vue-inter",
+    "type": "git"
+  },
+  "main": "dist/vue-inter.common.js",
+  "unpkg": "dist/vue-inter.min.js",
+  "cdn": "dist/vue-inter.min.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "npm run lint && echo 'no tests!'",
+    "lint": "xo",
+    "prepublish": "npm run build",
+    "build": "bili --format umd,cjs --compress umd --module-name VueInter",
+    "example": "poi",
+    "build:example": "poi build",
+    "gh": "gh-pages -d example/dist",
+    "deploy": "npm run build:example && npm run gh"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "poi": {
+    "entry": "example/index.js",
+    "dist": "example/dist",
+    "homepage": "/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "aimer": "^2.0.8",
+    "bili": "^0.17.0",
+    "eslint-config-rem": "^3.0.0",
+    "gh-pages": "^1.0.0",
+    "poi": "^9.1.4",
+    "xo": "^0.18.0"
+  },
+  "xo": {
+    "extends": "rem/prettier",
+    "ignores": [
+      "example/**"
+    ]
+  }
+}
