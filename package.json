@@ -16,7 +16,10 @@
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
     "prepublish": "npm run build",
-    "build": "bili --format umd,cjs --compress umd --module-name VueInter",
+    "build": "npm run build:cjs && npm run build:umd && npm run build:min",
+    "build:cjs": "bili",
+    "build:umd": "bili --format umd --module-name VueInter --env.NODE_ENV development",
+    "build:min": "bili --format umdCompress --module-name VueInter --env.NODE_ENV production",
     "example": "poi",
     "build:example": "poi build"
   },
