@@ -17,6 +17,10 @@ export default class Inter {
   }
 
   constructor({ locale, locales, template = defaultTemplate }) {
+    if (!Vue) {
+      throw new Error('You have to install `vue-inter` first: Vue.use(Inter)')
+    }
+
     this.template = template
 
     const silent = Vue.config.silent
