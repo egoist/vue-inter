@@ -18,9 +18,7 @@
     "prepublish": "npm run build",
     "build": "bili --format umd,cjs --compress umd --module-name VueInter",
     "example": "poi",
-    "build:example": "poi build",
-    "gh": "gh-pages -d example/dist",
-    "deploy": "npm run build:example && npm run gh"
+    "build:example": "poi build"
   },
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
