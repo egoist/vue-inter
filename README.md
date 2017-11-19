@@ -49,6 +49,39 @@ Root component `App.vue`:
 </template>
 ```
 
+<details><summary>Message templating</summary>
+
+By default `vue-inter` uses a simple templating syntax:
+
+```js
+// Object
+{ welcome_guest: 'hello {name}' }
+$inter.get('welcome_guest', { name: 'egoist' })
+// List
+{ welcome_guests: 'hello {0} and {1}' }
+$inter.get('welcome_guests', ['egoist', 'lily'])
+```
+
+You can also use a custom template engine, like [Mustache](https://github.com/janl/mustache.js):
+
+```js
+import Mustache from 'mustache'
+
+const inter = new Inter({
+  template(message, data) {
+    // render the message with data
+    return Mustache.render(message, data)
+  },
+  locale: 'en',
+  locales: {
+    en: {
+      welcome_message: 'Hello {{#user}}{{username}}{{/user}}{{^user}}guest{{/user}}'
+    }
+  }
+})
+```
+</details>
+
 ## API
 
 ### Instance API
