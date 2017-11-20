@@ -15,7 +15,7 @@
   "scripts": {
     "test": "npm run lint && echo 'no tests!'",
     "lint": "xo",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "build": "npm run build:cjs && npm run build:umd && npm run build:min",
     "build:cjs": "bili",
     "build:umd": "bili --format umd --module-name VueInter --env.NODE_ENV development",
@@ -37,10 +37,15 @@
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^9.1.4",
+    "tyu": "^1.0.1",
+    "vue": "^2.5.6",
+    "vue-template-compiler": "^2.5.6",
+    "vue-test-utils": "^1.0.0-beta.5",
     "xo": "^0.18.0"
   },
   "xo": {
     "extends": "rem/prettier",
+    "envs": ["jest"],
     "ignores": [
       "example/**"
     ]
