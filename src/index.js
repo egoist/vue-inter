@@ -22,12 +22,12 @@ export default class Inter {
     }
 
     this.template = template
+    this.locales = locales
 
     const silent = Vue.config.silent
     Vue.config.silent = true
     this.vm = new Vue({
       data: {
-        $$locales: locales,
         $$locale: locale
       }
     })
@@ -39,7 +39,7 @@ export default class Inter {
   }
 
   get(key, ...data) {
-    const localeData = this.vm._data.$$locales[this.locale]
+    const localeData = this.locales[this.locale]
     if (process.env.NODE_ENV === 'development' && !localeData) {
       throw new Error(`[vue-inter] Locale "${this.locale}" was not found`)
     }
