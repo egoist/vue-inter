@@ -1,6 +1,6 @@
 {
   "name": "vue-inter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Simple i18n for Vue.js",
   "repository": {
     "url": "egoist/vue-inter",
@@ -45,7 +45,9 @@
   },
   "xo": {
     "extends": "rem/prettier",
-    "envs": ["jest"],
+    "envs": [
+      "jest"
+    ],
     "ignores": [
       "example/**"
     ]
