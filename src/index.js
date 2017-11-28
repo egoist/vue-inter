@@ -8,7 +8,7 @@ export default class Inter {
     Vue.mixin({
       beforeCreate() {
         this.$inter =
-          this.$options.inter || (this.$parent && this.$parent.$options.inter)
+          this.$options.inter || (this.$parent && this.$parent.inter)
         if (this.$inter) {
           this.$i = this.$inter.get.bind(this.$inter)
         }
