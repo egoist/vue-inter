@@ -43,7 +43,7 @@ export default class Inter {
     if (process.env.NODE_ENV === 'development' && !localeData) {
       throw new Error(`[vue-inter] Locale "${this.locale}" was not found`)
     }
-    const message = localeData[key]
+    const message = key.split('.').reduce((o, i) => o[i], localeData)
     if (process.env.NODE_ENV === 'development' && !message) {
       throw new Error(`[vue-inter] No message under "${key}" was found`)
     }
