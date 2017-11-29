@@ -52,13 +52,14 @@ Root component `App.vue`:
 <details><summary>Dot-notation path</summary><br>
 
 ```js
-// Object
+// Locale data
 {
   my: {
     name: 'egoist'
   },
   'my.name': 'notegoist'
 }
+// Get message by path
 $inter.get('my.name') //=> egoist
 $inter.get('my\\.name') //=> notegoist
 ```
