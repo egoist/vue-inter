@@ -49,6 +49,22 @@ Root component `App.vue`:
 </template>
 ```
 
+<details><summary>Dot-notation path</summary><br>
+
+```js
+// Locale data
+{
+  my: {
+    name: 'egoist'
+  },
+  'my.name': 'notegoist'
+}
+// Get message by path
+$inter.get('my.name') //=> egoist
+$inter.get('my\\.name') //=> notegoist
+```
+</details>
+
 <details><summary>Message templating</summary><br>
 
 By default `vue-inter` uses a simple templating syntax:

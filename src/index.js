@@ -1,4 +1,5 @@
 import defaultTemplate from './template'
+import getProp from './get-prop'
 
 let Vue
 
@@ -38,14 +39,14 @@ export default class Inter {
     return this.vm._data.$$locale
   }
 
-  get(key, ...data) {
+  get(path, ...data) {
     const localeData = this.locales[this.locale]
     if (process.env.NODE_ENV === 'development' && !localeData) {
       throw new Error(`[vue-inter] Locale "${this.locale}" was not found`)
     }
-    const message = localeData[key]
+    const message = getProp(localeData, path)
     if (process.env.NODE_ENV === 'development' && !message) {
-      throw new Error(`[vue-inter] No message under "${key}" was found`)
+      throw new Error(`[vue-inter] No message under "${path}" was found`)
     }
     return this.template(message, ...data)
   }
