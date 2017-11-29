@@ -13,7 +13,7 @@
     "dist"
   ],
   "scripts": {
-    "test": "npm run lint && echo 'no tests!'",
+    "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
     "build": "npm run build:cjs && npm run build:umd && npm run build:min",
