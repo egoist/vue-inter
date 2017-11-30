@@ -26,7 +26,7 @@ export default class Inter {
     this.locales = locales
 
     const silent = Vue.config.silent
-    // Vue.config.silent = true
+    Vue.config.silent = true
     this.vm = new Vue({
       data: {
         $$locale: locale
