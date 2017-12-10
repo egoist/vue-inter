@@ -25,18 +25,11 @@ export default class Inter {
     this.template = template
     this.locales = locales
 
-    const silent = Vue.config.silent
-    Vue.config.silent = true
-    this.vm = new Vue({
-      data: {
-        $$locale: locale
-      }
-    })
-    Vue.config.silent = silent
+    Vue.util.defineReactive(this, '__locale', locale)
   }
 
   get locale() {
-    return this.vm._data.$$locale
+    return this.__locale
   }
 
   get(path, ...data) {
@@ -52,7 +45,7 @@ export default class Inter {
   }
 
   setLocale(locale) {
-    this.vm._data.$$locale = locale
+    this.__locale = locale
     return this
   }
 }
