@@ -3,6 +3,8 @@
 
 [![NPM version](https://img.shields.io/npm/v/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![NPM downloads](https://img.shields.io/npm/dm/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![CircleCI](https://circleci.com/gh/egoist/vue-inter/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-inter/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
 
+[![Edit vue-inter example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vvky0nov6l)
+
 ## Install
 
 ```bash
