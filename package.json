@@ -6,7 +6,7 @@
     "url": "egoist/vue-inter",
     "type": "git"
   },
-  "main": "dist/vue-inter.common.js",
+  "main": "dist/vue-inter.cjs.js",
   "unpkg": "dist/vue-inter.min.js",
   "cdn": "dist/vue-inter.min.js",
   "files": [

@@ -1,6 +1,7 @@
 module.exports = {
   moduleName: 'VueInter',
   format: ['cjs', 'umd', 'umd-min'],
+  name: 'vue-inter',
   extendOptions(options, { format, compress }) {
     if (format === 'umd') {
       options.env = options.env || {}
