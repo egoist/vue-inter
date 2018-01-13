@@ -29,7 +29,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "aimer": "^2.0.8",
     "bili": "^1.5.3",
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",

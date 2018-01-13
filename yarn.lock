@@ -73,15 +73,6 @@ address@^1.0.1:
   version "1.0.3"
   resolved "https://registry.npmjs.org/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
-aimer@^2.0.8:
-  version "2.0.8"
-  resolved "https://registry.npmjs.org/aimer/-/aimer-2.0.8.tgz#516bd578e128c7f9ca4fd40e4a831beb64e81a20"
-  dependencies:
-    nano-assign "^1.0.0"
-    nanoquery "^1.1.0"
-    poi "^9.4.4"
-    slugo "^0.2.1"
-
 ajv-keywords@^1.0.0:
   version "1.5.1"
   resolved "https://registry.npmjs.org/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
@@ -4693,20 +4684,6 @@ nan@^2.3.0:
   version "2.8.0"
   resolved "https://registry.npmjs.org/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
 
-nano-assign@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/nano-assign/-/nano-assign-1.0.0.tgz#499f4f8a1ae801f2405863e6946ca8568d666e4e"
-
-nanoassert@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/nanoassert/-/nanoassert-1.1.0.tgz#4f3152e09540fde28c76f44b19bbcd1d5a42478d"
-
-nanoquery@^1.1.0:
-  version "1.2.0"
-  resolved "https://registry.npmjs.org/nanoquery/-/nanoquery-1.2.0.tgz#0e44537ac1a2717e11ee796abce605f141984982"
-  dependencies:
-    nanoassert "^1.1.0"
-
 natural-compare@^1.4.0:
   version "1.4.0"
   resolved "https://registry.npmjs.org/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
@@ -5241,7 +5218,7 @@ poi-webpack-node-externals@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/poi-webpack-node-externals/-/poi-webpack-node-externals-2.0.0.tgz#3e23ae0673705f5f44b23ecd194b85c724de91fa"
 
-poi@^9.1.4, poi@^9.4.4:
+poi@^9.1.4:
   version "9.5.2"
   resolved "https://registry.npmjs.org/poi/-/poi-9.5.2.tgz#c621d1b736dee17a65734c8f471ac5585eb44678"
   dependencies:
@@ -6381,10 +6358,6 @@ slash@^1.0.0:
 slice-ansi@0.0.4:
   version "0.0.4"
   resolved "https://registry.npmjs.org/slice-ansi/-/slice-ansi-0.0.4.tgz#edbf8903f66f7ce2f8eafd6ceed65e264c831b35"
-
-slugo@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/slugo/-/slugo-0.2.1.tgz#a44bb2c6a72a8921888b08fc18e3181e9dd7df8e"
 
 sntp@1.x.x:
   version "1.0.9"
