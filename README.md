@@ -127,7 +127,7 @@ A `LocaleData` type is:
 ```typescript
 interface LocaleData {
   /** The value is a string or a function that returns a string */
-  [path: string]: string | (data?: any): string => message
+  [path: string]: string | (...data: any[]): string => message
 }
 ```
 
