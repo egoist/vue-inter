@@ -113,8 +113,8 @@ const inter = new Inter({
 
   // Available locales
   locales: {
-    en: Object,
-    zh: Object
+    en: LocaleData,
+    zh: LocaleData
   },
 
   // Message templating
@@ -122,7 +122,16 @@ const inter = new Inter({
 })
 ```
 
-#### inter.get(key, [data])
+A `LocaleData` type is:
+
+```typescript
+interface LocaleData {
+  /** The value is a string or a function that returns a string */
+  [path: string]: string | (data?: any): string => message
+}
+```
+
+#### inter.get(path, [data])
 
 Get a message from current locale, the message supports templating:
 

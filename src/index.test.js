@@ -59,3 +59,24 @@ test('add locale data afterwards', async () => {
   await Vue.nextTick()
   expect(wrapper.html()).toBe('<div>欢迎</div>')
 })
+
+test('locale message could be a function', async () => {
+  const inter = new Inter({
+    locale: 'en',
+    locales: {
+      en: {
+        welcome: (a, b) => a + b
+      }
+    }
+  })
+
+  const wrapper = mount(
+    {
+      inter,
+      template: `<div>{{ $i('welcome', 1, 2) }}</div>`
+    },
+    { clone: false }
+  )
+
+  expect(wrapper.html()).toBe('<div>3</div>')
+})

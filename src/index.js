@@ -41,6 +41,9 @@ export default class Inter {
     if (process.env.NODE_ENV === 'development' && !message) {
       throw new Error(`[vue-inter] No message under "${path}" was found`)
     }
+    if (typeof message === 'function') {
+      return message(...data)
+    }
     return this.template(message, ...data)
   }
 
