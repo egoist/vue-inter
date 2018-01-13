@@ -17,7 +17,7 @@ export default class Inter {
     })
   }
 
-  constructor({ locale, locales, template = defaultTemplate }) {
+  constructor({ locale, locales = {}, template = defaultTemplate }) {
     if (process.env.NODE_ENV === 'development' && !Vue) {
       throw new Error('You have to install `vue-inter` first: Vue.use(Inter)')
     }
@@ -44,7 +44,10 @@ export default class Inter {
     return this.template(message, ...data)
   }
 
-  setLocale(locale) {
+  setLocale(locale, localeData) {
+    if (localeData) {
+      this.locales[locale] = localeData
+    }
     this.__locale = locale
     return this
   }

@@ -136,9 +136,19 @@ inter.get('i_like', ['apple', 'banana'])
 // Your will get `I like apple and banana`
 ```
 
-#### inter.setLocale(locale)
+#### inter.setLocale(locale, [localeData])
 
 Update current locale, eg. `inter.setLocale('fr')`
+
+You can also provide `localeData` for this locale if it's not set during creating `inter` instance.
+
+This is especially useful with webpack's `dynamic import` to split locales into independent files in order to reduce main bundle size:
+
+```js
+import('./locales/chinese-locale').then(localeData => {
+  inter.setLocale('cn', localeData)
+})
+```
 
 #### inter.locale
 

@@ -32,3 +32,30 @@ test('basic', async () => {
   await Vue.nextTick()
   expect(wrapper.html()).toBe('<div>欢迎</div>')
 })
+
+test('add locale data afterwards', async () => {
+  const inter = new Inter({
+    locale: 'en',
+    locales: {
+      en: {
+        welcome: 'welcome'
+      }
+    }
+  })
+
+  const wrapper = mount(
+    {
+      inter,
+      template: `<div>{{ $i('welcome') }}</div>`
+    },
+    { clone: false }
+  )
+
+  expect(wrapper.html()).toBe('<div>welcome</div>')
+
+  inter.setLocale('cn', {
+    welcome: '欢迎'
+  })
+  await Vue.nextTick()
+  expect(wrapper.html()).toBe('<div>欢迎</div>')
+})
