@@ -118,7 +118,7 @@ const inter = new Inter({
   },
 
   // Message templating
-  template: Function
+  template: Template
 })
 ```
 
@@ -129,6 +129,12 @@ interface LocaleData {
   /** The value is a string or a function that returns a string */
   [path: string]: string | (...data: any[]) => string
 }
+```
+
+While a `Template` type is:
+
+```typescript
+type Template = (message: string, ...data: any[]) => string
 ```
 
 #### inter.get(path, [data])
