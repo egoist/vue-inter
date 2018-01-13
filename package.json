@@ -16,10 +16,7 @@
     "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "npm run build:cjs && npm run build:umd && npm run build:min",
-    "build:cjs": "bili",
-    "build:umd": "bili --format umd --module-name VueInter --env.NODE_ENV development",
-    "build:min": "bili --format umdCompress --module-name VueInter --env.NODE_ENV production",
+    "build": "bili",
     "example": "poi",
     "build:example": "poi build"
   },
@@ -33,7 +30,7 @@
   "dependencies": {},
   "devDependencies": {
     "aimer": "^2.0.8",
-    "bili": "^0.17.0",
+    "bili": "^1.5.3",
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^9.1.4",
