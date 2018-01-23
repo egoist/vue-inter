@@ -16,7 +16,7 @@
     "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --moduleName VueInter --format cjs,umd,umd-min",
+    "build": "bili --moduleName VueInter --format cjs,umd,umd-min --buble.transforms.dangerousForOf",
     "example": "poi",
     "build:example": "poi build"
   },
