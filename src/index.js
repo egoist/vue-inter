@@ -28,14 +28,12 @@ export default class Inter {
     Vue.util.defineReactive(this, '__locale', locale)
   }
 
-  get locale() {
-    return this.__locale
-  }
-
   get(path, ...data) {
-    const localeData = this.locales[this.locale]
+    const localeData = this.locales[this.currentLocale]
     if (process.env.NODE_ENV === 'development' && !localeData) {
-      throw new Error(`[vue-inter] Locale "${this.locale}" was not found`)
+      throw new Error(
+        `[vue-inter] Locale "${this.currentLocale}" was not found`
+      )
     }
     const message = getProp(localeData, path)
     if (process.env.NODE_ENV === 'development' && !message) {
@@ -47,11 +45,21 @@ export default class Inter {
     return this.template(message, ...data)
   }
 
-  setLocale(locale, localeData) {
-    if (localeData) {
-      this.locales[locale] = localeData
-    }
+  get currentLocale() {
+    return this.__locale
+  }
+
+  setCurrentLocale(locale) {
     this.__locale = locale
     return this
+  }
+
+  setLocaleData(locale, localData) {
+    this.locales[locale] = localData
+    return this
+  }
+
+  get availableLocales() {
+    return Object.keys(this.locales)
   }
 }

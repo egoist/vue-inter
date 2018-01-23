@@ -151,23 +151,39 @@ inter.get('i_like', ['apple', 'banana'])
 // Your will get `I like apple and banana`
 ```
 
-#### inter.setLocale(locale, [localeData])
+#### inter.setCurrentLocale(locale)
 
-Update current locale, eg. `inter.setLocale('fr')`
-
-You can also provide `localeData` for this locale if it's not set during creating `inter` instance.
-
-This is especially useful with webpack's `dynamic import` to split locales into independent files in order to reduce main bundle size:
+Set current locale, e.g.:
 
 ```js
-import('./locales/chinese-locale').then(localeData => {
-  inter.setLocale('cn', localeData)
-})
+inter.setCurrentLocale('fr')
 ```
 
-#### inter.locale
+#### inter.currentLocale
 
-Get current locale.
+Return current locale, e.g.:
+
+```js
+inter.currentLocale
+//=> 'fr'
+```
+
+#### inter.setLocaleData(locale, localeData)
+
+Set localeData for a locale, e.g.:
+
+```js
+inter.setLocaleData('es', espanaLocaleData)
+```
+
+#### inter.availableLocales
+
+Return a list of available locales, e.g.:
+
+```js
+inter.availableLocales
+//=> ['fr', 'es']
+```
 
 ### Component injection
 

@@ -31,7 +31,7 @@ new Vue({
   },
   render() {
     return <div>
-      <select onChange={e => this.$inter.setLocale(e.target.value)}>
+      <select onChange={e => this.$inter.setCurrentLocale(e.target.value)}>
         <option value="en" selected>en</option>
         <option value="zh">zh</option>
       </select>

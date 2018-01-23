@@ -28,7 +28,7 @@ test('basic', async () => {
   expect(wrapper.html()).toBe('<div>welcome</div>')
 
   // Update locale
-  inter.setLocale('zh')
+  inter.setCurrentLocale('zh')
   await Vue.nextTick()
   expect(wrapper.html()).toBe('<div>欢迎</div>')
 })
@@ -53,9 +53,10 @@ test('add locale data afterwards', async () => {
 
   expect(wrapper.html()).toBe('<div>welcome</div>')
 
-  inter.setLocale('cn', {
+  inter.setLocaleData('cn', {
     welcome: '欢迎'
   })
+  inter.setCurrentLocale('cn')
   await Vue.nextTick()
   expect(wrapper.html()).toBe('<div>欢迎</div>')
 })

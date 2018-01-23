@@ -16,7 +16,7 @@
     "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili",
+    "build": "bili --moduleName VueInter --format cjs,umd,umd-min",
     "example": "poi",
     "build:example": "poi build"
   },
@@ -29,7 +29,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "bili": "^1.5.3",
+    "bili": "^1.6.5",
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^9.1.4",
