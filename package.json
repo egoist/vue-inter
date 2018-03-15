@@ -7,8 +7,10 @@
     "type": "git"
   },
   "main": "dist/vue-inter.cjs.js",
+  "module": "dist/vue-inter.es.js",
   "unpkg": "dist/vue-inter.min.js",
   "cdn": "dist/vue-inter.min.js",
+  "jsdelivr": "dist/vue-inter.min.js",
   "files": [
     "dist"
   ],
@@ -16,7 +18,7 @@
     "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --moduleName VueInter --format cjs,umd,umd-min --js buble --buble.transforms.dangerousForOf",
+    "build": "bili --moduleName VueInter --format es,cjs,umd,umd-min --js buble --buble.transforms.dangerousForOf",
     "example": "poi",
     "build:example": "poi build"
   },
