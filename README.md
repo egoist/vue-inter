@@ -51,6 +51,21 @@ Root component `App.vue`:
 
 First, we find message from `messages` at given `path`, then we fallback to `defaultMessage` if not found.
 
+### Plural support
+
+You can use [intl-messageformat](https://github.com/yahoo/intl-messageformat) instead of our default [`template`](#create-instance) option to add plural support:
+
+```js
+import IntlMessageFormat from 'intl-messageformat'
+
+const inter = new Inter({
+	template(message, data) {
+		const tpl = new IntlMessageFormat(message, this.currentLocale)
+		return tpl.format(data)
+	}
+})
+```
+
 ## Components
 
 ### `<FormatMessage>`
