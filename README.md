@@ -51,6 +51,34 @@ Root component `App.vue`:
 
 First, we find message from `messages` at given `path`, then we fallback to `defaultMessage` if not found.
 
+## Components
+
+### `<FormatMessage>`
+
+#### Props
+
+##### path
+
+Type: `string`<br>
+Required: `true`
+
+Find locale message at given path, or fallback to `defaultMessage` below.
+
+##### defaultMessage
+
+Type: `string`
+
+##### data
+
+Type: `object`
+
+##### tag
+
+Type: `string` `object`<br>
+Default: `span`
+
+An HTML tag or Vue component.
+
 ## API
 
 ### Instance API
