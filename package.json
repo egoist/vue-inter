@@ -28,6 +28,7 @@
     "homepage": "/"
   },
   "dependencies": {
+    "intl-messageformat": "^2.2.0",
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {

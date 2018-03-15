@@ -1,15 +1,8 @@
-export default (tpl, data) => {
-  if (!data) return tpl
+import MessageFormat from 'intl-messageformat'
 
-  const re = /{(.*?)}/g
+export default function(message, data) {
+  if (!data) return message
 
-  return tpl.replace(re, (_, key) => {
-    let ret = data
-
-    for (const prop of key.split('.')) {
-      ret = ret ? ret[prop] : ''
-    }
-
-    return ret || ''
-  })
+  const tpl = new MessageFormat(message, this.currentLocale)
+  return tpl.format(data)
 }
