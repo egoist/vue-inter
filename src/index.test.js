@@ -20,7 +20,7 @@ test('basic', async () => {
   const wrapper = mount(
     {
       inter,
-      template: `<div>{{ $i('welcome') }}</div>`
+      template: `<div>{{ $inter.formatMessage({ path: 'welcome' }) }}</div>`
     },
     { clone: false }
   )
@@ -46,7 +46,7 @@ test('add locale data afterwards', async () => {
   const wrapper = mount(
     {
       inter,
-      template: `<div>{{ $i('welcome') }}</div>`
+      template: `<div>{{ $inter.formatMessage({ path: 'welcome' }) }}</div>`
     },
     { clone: false }
   )
@@ -74,7 +74,7 @@ test('locale message could be a function', async () => {
   const wrapper = mount(
     {
       inter,
-      template: `<div>{{ $i('welcome', 1, 2) }}</div>`
+      template: `<div>{{ $inter.formatMessage({ path: 'welcome' }, 1, 2) }}</div>`
     },
     { clone: false }
   )

@@ -25,14 +25,8 @@ Vue.use(Inter)
 
 const inter = new Inter({
   locale: 'en',
-  messages: {
-    en: {
-      welcome_guest: 'Welcome guest'
-    },
-    zh: {
-      welcome_guest: '你好游客'
-    }
-  }
+  // Define messages for other locales
+  messages: {}
 })
 
 new Vue({
@@ -46,59 +40,16 @@ Root component `App.vue`:
 ```vue
 <template>
   <div id="app">
-    {{ $inter.get('welcome_guest') }}
+    <format-message 
+      path="app.home.greeting"
+      defaultMessage="Hello {name}!"
+      :data="{name: 'egoist'}"
+    />
   </div>
 </template>
 ```
 
-<details><summary>Dot-notation path</summary><br>
-
-```js
-// Locale data
-{
-  my: {
-    name: 'egoist'
-  },
-  'my.name': 'notegoist'
-}
-// Get message by path
-$inter.get('my.name') //=> egoist
-$inter.get('my\\.name') //=> notegoist
-```
-</details>
-
-<details><summary>Message templating</summary><br>
-
-By default `vue-inter` uses a simple templating syntax:
-
-```js
-// Object
-{ welcome_guest: 'hello {name}' }
-$inter.get('welcome_guest', { name: 'egoist' })
-// List
-{ welcome_guests: 'hello {0} and {1}' }
-$inter.get('welcome_guests', ['egoist', 'lily'])
-```
-
-You can also use a custom template engine, like [Mustache](https://github.com/janl/mustache.js):
-
-```js
-import Mustache from 'mustache'
-
-const inter = new Inter({
-  template(message, data) {
-    // render the message with data
-    return Mustache.render(message, data)
-  },
-  locale: 'en',
-  messages: {
-    en: {
-      welcome_message: 'Hello {{#user}}{{username}}{{/user}}{{^user}}guest{{/user}}'
-    }
-  }
-})
-```
-</details>
+First, we find message from `messages` at given `path`, then we fallback to `defaultMessage` if not found.
 
 ## API
 
@@ -137,18 +88,19 @@ While a `Template` type is:
 type Template = (message: string, ...data: any[]) => string
 ```
 
-#### inter.get(path, [data])
+#### inter.formatMessage({ path, defaultMessage }, [data])
 
-Get a message from current locale, the message supports templating:
+Format a message from given path in `messages` for current locale:
 
 ```js
-// Assuming `my_age` is set to `I am {age} years old`
-inter.get('my_age', { age: 23 })
-// You will get `I am 23 years old`
+inter.formatMessage({ path: 'app.hello' }, { name: 'egoist' })
 
-// Assuming `i_like` is set to `I like {0} and {1}`
-inter.get('i_like', ['apple', 'banana'])
-// Your will get `I like apple and banana`
+// Or fallback to `defaultMessage` when message was not found
+// at given path
+inter.formatMessage({ 
+  path: 'not.exists.path',
+  defaultMessage: 'Hello {name}'
+}, { name: 'egoist' })
 ```
 
 #### inter.setCurrentLocale(locale)
@@ -190,10 +142,6 @@ inter.availableLocales
 #### $inter
 
 The Inter instance.
-
-#### $i
-
-Alias to `$inter.get`.
 
 ## Contributing
 

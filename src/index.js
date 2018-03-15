@@ -1,5 +1,6 @@
 import defaultTemplate from './template'
 import getProp from './get-prop'
+import FormatMessage from './FormatMessage'
 
 let Vue
 
@@ -10,11 +11,9 @@ export default class Inter {
       beforeCreate() {
         this.$inter =
           this.$options.inter || (this.$parent && this.$parent.$inter)
-        if (this.$inter) {
-          this.$i = this.$inter.get.bind(this.$inter)
-        }
       }
     })
+    Vue.component(FormatMessage.name, FormatMessage)
   }
 
   constructor({ locale, messages = {}, template = defaultTemplate }) {
@@ -28,19 +27,24 @@ export default class Inter {
     Vue.util.defineReactive(this, '__locale', locale)
   }
 
-  get(path, ...data) {
-    const localeData = this.messages[this.currentLocale]
-    if (process.env.NODE_ENV === 'development' && !localeData) {
-      throw new Error(
-        `[vue-inter] Locale "${this.currentLocale}" was not found`
+  formatMessage(messageDescriptor, ...data) {
+    if (typeof messageDescriptor !== 'object') {
+      throw new TypeError(
+        'messageDescriptor in .formatMessage must be an object.'
       )
     }
-    const message = getProp(localeData, path)
-    if (process.env.NODE_ENV === 'development' && !message) {
-      throw new Error(`[vue-inter] No message under "${path}" was found`)
-    }
+
+    const { path, defaultMessage } = messageDescriptor
+    const localeData = this.messages[this.currentLocale]
+    // Get message from path
+    let message = path && getProp(localeData, path)
     if (typeof message === 'function') {
       return message(...data)
+    }
+    if (typeof message === 'undefined') {
+      // Fallback to defaultMessage
+      // Fallback to path literal
+      message = typeof defaultMessage === 'undefined' ? path : defaultMessage
     }
     return this.template(message, ...data)
   }

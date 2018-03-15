@@ -5,14 +5,7 @@ Vue.use(Inter)
 
 const inter = new Inter({
   locale: 'en',
-  locales: {
-    en: {
-      welcome_guest: 'Welcome guest',
-      my: {
-        age: 'I am {age} years old'
-      },
-      source_code: 'Check out the source code'
-    },
+  messages: {
     zh: {
       welcome_guest: '你好游客',
       my: {
@@ -37,10 +30,21 @@ new Vue({
       </select>
       <input v-model={this.age} type="number" />
       <hr/>
-      {this.$inter.get('welcome_guest')},{' '}
-      {this.$inter.get('my.age', { age: this.age })}
+      <format-message
+        class="foo"
+        id="haha"
+        onClick={() => alert('123')}
+        tag="div"
+        path="welcome_guest"
+        defaultMessage="Welcome guest" />
+      <format-message
+        path="my.age"
+        defaultMessage="I am {age} years old"
+        data={{ age: this.age }} />
       <hr/>
-      {this.$inter.get('source_code')}: <a href="https://github.com/egoist/vue-inter">https://github.com/egoist/vue-inter</a>
+      <format-message
+        path="source_code"
+        defaultMessage="Check out the source code" />: <a href="https://github.com/egoist/vue-inter">https://github.com/egoist/vue-inter</a>
     </div>
   }
 })
