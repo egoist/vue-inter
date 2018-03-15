@@ -113,7 +113,7 @@ interface LocaleMessages {
 While a `Template` type is:
 
 ```typescript
-type Template = (message: string, ...data: any[]) => string
+type Template = (this: Inter, message: string, ...data: any[]) => string
 ```
 
 #### inter.formatMessage({ path, defaultMessage }, [data])
