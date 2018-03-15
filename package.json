@@ -16,7 +16,7 @@
     "test": "npm run lint && tyu",
     "lint": "xo",
     "prepublishOnly": "npm run build",
-    "build": "bili --moduleName VueInter --format cjs,umd,umd-min --buble.transforms.dangerousForOf",
+    "build": "bili --moduleName VueInter --format cjs,umd,umd-min --js buble --buble.transforms.dangerousForOf",
     "example": "poi",
     "build:example": "poi build"
   },
@@ -27,9 +27,11 @@
     "dist": "example/dist",
     "homepage": "/"
   },
-  "dependencies": {},
+  "dependencies": {
+    "nano-assign": "^1.0.0"
+  },
   "devDependencies": {
-    "bili": "^1.6.5",
+    "bili": "^3.0.7",
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
     "poi": "^9.1.4",

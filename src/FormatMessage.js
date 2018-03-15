@@ -1,3 +1,5 @@
+import assign from 'nano-assign'
+
 export default {
   name: 'FormatMessage',
   functional: true,
@@ -29,10 +31,9 @@ export default {
 
     return h(
       props.tag,
-      {
-        ...data,
+      assign({}, data, {
         on: listeners
-      },
+      }),
       [message]
     )
   }
