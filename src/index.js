@@ -17,19 +17,19 @@ export default class Inter {
     })
   }
 
-  constructor({ locale, locales = {}, template = defaultTemplate }) {
+  constructor({ locale, messages = {}, template = defaultTemplate }) {
     if (process.env.NODE_ENV === 'development' && !Vue) {
       throw new Error('You have to install `vue-inter` first: Vue.use(Inter)')
     }
 
     this.template = template
-    this.locales = locales
+    this.messages = messages
 
     Vue.util.defineReactive(this, '__locale', locale)
   }
 
   get(path, ...data) {
-    const localeData = this.locales[this.currentLocale]
+    const localeData = this.messages[this.currentLocale]
     if (process.env.NODE_ENV === 'development' && !localeData) {
       throw new Error(
         `[vue-inter] Locale "${this.currentLocale}" was not found`
@@ -55,11 +55,11 @@ export default class Inter {
   }
 
   setLocaleData(locale, localData) {
-    this.locales[locale] = localData
+    this.messages[locale] = localData
     return this
   }
 
   get availableLocales() {
-    return Object.keys(this.locales)
+    return Object.keys(this.messages)
   }
 }

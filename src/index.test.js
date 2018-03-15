@@ -7,7 +7,7 @@ Vue.use(Inter)
 test('basic', async () => {
   const inter = new Inter({
     locale: 'en',
-    locales: {
+    messages: {
       en: {
         welcome: 'welcome'
       },
@@ -36,7 +36,7 @@ test('basic', async () => {
 test('add locale data afterwards', async () => {
   const inter = new Inter({
     locale: 'en',
-    locales: {
+    messages: {
       en: {
         welcome: 'welcome'
       }
@@ -64,7 +64,7 @@ test('add locale data afterwards', async () => {
 test('locale message could be a function', async () => {
   const inter = new Inter({
     locale: 'en',
-    locales: {
+    messages: {
       en: {
         welcome: (a, b) => a + b
       }

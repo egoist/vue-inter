@@ -25,7 +25,7 @@ Vue.use(Inter)
 
 const inter = new Inter({
   locale: 'en',
-  locales: {
+  messages: {
     en: {
       welcome_guest: 'Welcome guest'
     },
@@ -91,7 +91,7 @@ const inter = new Inter({
     return Mustache.render(message, data)
   },
   locale: 'en',
-  locales: {
+  messages: {
     en: {
       welcome_message: 'Hello {{#user}}{{username}}{{/user}}{{^user}}guest{{/user}}'
     }
@@ -111,10 +111,10 @@ const inter = new Inter({
   // Current locale
   locale: 'en',
 
-  // Available locales
-  locales: {
-    en: LocaleData,
-    zh: LocaleData
+  // Messages for each locale
+  messages: {
+    en: LocaleMessages,
+    zh: LocaleMessages
   },
 
   // Message templating
@@ -122,10 +122,10 @@ const inter = new Inter({
 })
 ```
 
-A `LocaleData` type is:
+A `LocaleMessages` type is:
 
 ```typescript
-interface LocaleData {
+interface LocaleMessages {
   /** The value is a string or a function that returns a string */
   [path: string]: string | (...data: any[]) => string
 }
