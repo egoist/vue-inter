@@ -60,6 +60,7 @@ import IntlMessageFormat from 'intl-messageformat'
 
 const inter = new Inter({
 	template(message, data) {
+    if (!data) return message
 		const tpl = new IntlMessageFormat(message, this.currentLocale)
 		return tpl.format(data)
 	}
