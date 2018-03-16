@@ -16,6 +16,7 @@
   ],
   "scripts": {
     "test": "npm run lint && tyu",
+    "test:cov": "npm run lint && tyu -- --coverage",
     "lint": "xo",
     "prepublishOnly": "npm run build",
     "build": "bili --moduleName VueInter --format es,cjs,umd,umd-min --js buble --buble.transforms.dangerousForOf",
@@ -33,6 +34,7 @@
     "nano-assign": "^1.0.0"
   },
   "devDependencies": {
+    "@vue/test-utils": "^1.0.0-beta.12",
     "bili": "^3.0.7",
     "eslint-config-rem": "^3.0.0",
     "gh-pages": "^1.0.0",
@@ -40,7 +42,6 @@
     "tyu": "^1.0.6",
     "vue": "^2.5.6",
     "vue-template-compiler": "^2.5.6",
-    "vue-test-utils": "^1.0.0-beta.5",
     "xo": "^0.18.0"
   },
   "xo": {
