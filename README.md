@@ -1,7 +1,6 @@
-
 # vue-inter
 
-[![NPM version](https://img.shields.io/npm/v/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![NPM downloads](https://img.shields.io/npm/dm/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![CircleCI](https://circleci.com/gh/egoist/vue-inter/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-inter/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
+[![NPM version](https://img.shields.io/npm/v/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![NPM downloads](https://img.shields.io/npm/dm/vue-inter.svg?style=flat)](https://npmjs.com/package/vue-inter) [![CircleCI](https://circleci.com/gh/egoist/vue-inter/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-inter/tree/master) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
 
 [![Edit vue-inter example](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vvky0nov6l)
 
@@ -18,7 +17,7 @@ CDN: [UNPKG](https://unpkg.com/vue-inter/dist/) | [jsDevlir](https://cdn.jsdeliv
 App entry `index.js`:
 
 ```js
-import Inter  from 'vue-inter'
+import Inter from 'vue-inter'
 import App from './App.vue'
 
 Vue.use(Inter)
@@ -40,7 +39,7 @@ Root component `App.vue`:
 ```vue
 <template>
   <div id="app">
-    <format-message 
+    <format-message
       path="app.home.greeting"
       defaultMessage="Hello {name}!"
       :data="{name: 'egoist'}"
@@ -59,11 +58,11 @@ You can use [intl-messageformat](https://github.com/yahoo/intl-messageformat) in
 import IntlMessageFormat from 'intl-messageformat'
 
 const inter = new Inter({
-	template(message, data) {
+  template(message, data) {
     if (!data) return message
-		const tpl = new IntlMessageFormat(message, this.currentLocale)
-		return tpl.format(data)
-	}
+    const tpl = new IntlMessageFormat(message, this.currentLocale)
+    return tpl.format(data)
+  }
 })
 ```
 
@@ -141,10 +140,13 @@ inter.formatMessage({ path: 'app.hello' }, { name: 'egoist' })
 
 // Or fallback to `defaultMessage` when message was not found
 // at given path
-inter.formatMessage({ 
-  path: 'not.exists.path',
-  defaultMessage: 'Hello {name}'
-}, { name: 'egoist' })
+inter.formatMessage(
+  {
+    path: 'not.exists.path',
+    defaultMessage: 'Hello {name}'
+  },
+  { name: 'egoist' }
+)
 ```
 
 #### inter.setCurrentLocale(locale)
@@ -189,16 +191,15 @@ The Inter instance.
 
 ## Contributing
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :D
-
+1.  Fork it!
+2.  Create your feature branch: `git checkout -b my-new-feature`
+3.  Commit your changes: `git commit -am 'Add some feature'`
+4.  Push to the branch: `git push origin my-new-feature`
+5.  Submit a pull request :D
 
 ## Author
 
 **vue-inter** © [EGOIST](https://github.com/egoist), Released under the [MIT](./LICENSE) License.<br>
 Authored and maintained by EGOIST with help from contributors ([list](https://github.com/egoist/vue-inter/contributors)).
 
-> [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@_egoistlily](https://twitter.com/_egoistlily)
+> [egoist.moe](https://egoist.moe) · GitHub [@EGOIST](https://github.com/egoist) · Twitter [@\_egoistlily](https://twitter.com/_egoistlily)
